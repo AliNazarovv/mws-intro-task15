@@ -1,0 +1,41 @@
+﻿@model List<Country>
+
+<div class="row">
+    <div class="col-12">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Code
+                    </th>
+                    <th>
+                        <a asp-controller="Countries" asp-action="Create">Create New</a>
+                    </th>
+                </tr>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @item.Code
+                        </td>
+                        <td>
+                            <a asp-controller="Countries" asp-action="details" asp-route-id=" @item.Id">Details</a>
+                            <a asp-controller="Countries" asp-action="edit" asp-route-id=" @item.Id">Edit</a>
+                            <a asp-controller="Countries" asp-action="remove" asp-route-id=" @item.Id">Remove</a>
+
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
